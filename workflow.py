@@ -38,9 +38,8 @@ class FileStructureState(TypedDict):
    improvement_count (int)."""
    
    srd_text: Annotated[str, operator.add]
-   
-   file_structure: Optional[Annotated[List[str], operator.add]]
-   file_descriptions: Optional[Dict[str, str]]
+   file_structure: Annotated[List[str], operator.add]
+   file_descriptions: Annotated[Dict[str, str], lambda a, b: {**a, **b}]
    folder_path: str
    error_log: Optional[str]
    retry_count: int
